@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== 默认主题：晨雾白 ===== */
+:root,
+[data-theme='morning-mist'] {
+  --color-primary: #e07b54;
+  --color-primary-hover: #c96b44;
+  --color-secondary: #f4a261;
+  --color-accent: #2a9d8f;
+  --color-bg: #faf7f4;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #f2ede8;
+  --color-text: #2d2d2d;
+  --color-text-muted: #8a8078;
+  --color-border: #e8e0d8;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --color-progress-track: #ede8e3;
+  --color-timer-ring: #e07b54;
+  --color-timer-break: #2a9d8f;
+}
+
+/* ===== 深夜蓝 ===== */
+[data-theme='midnight-blue'] {
+  --color-primary: #7c83fd;
+  --color-primary-hover: #6c74fc;
+  --color-secondary: #a78bfa;
+  --color-accent: #34d399;
+  --color-bg: #0f1117;
+  --color-bg-card: #1a1d27;
+  --color-bg-sidebar: #141720;
+  --color-text: #e2e8f0;
+  --color-text-muted: #64748b;
+  --color-border: #2d3148;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --color-progress-track: #1e2235;
+  --color-timer-ring: #7c83fd;
+  --color-timer-break: #34d399;
+}
+
+/* ===== 抹茶绿 ===== */
+[data-theme='matcha-green'] {
+  --color-primary: #4a7c59;
+  --color-primary-hover: #3a6a48;
+  --color-secondary: #6b9e78;
+  --color-accent: #c8a96e;
+  --color-bg: #f0f4ef;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #e3ece1;
+  --color-text: #2b3a2e;
+  --color-text-muted: #7a9480;
+  --color-border: #cddbc9;
+  --shadow-color: rgba(0, 0, 0, 0.07);
+  --color-progress-track: #ddebd8;
+  --color-timer-ring: #4a7c59;
+  --color-timer-break: #c8a96e;
+}
+
+/* ===== 暖橙秋 ===== */
+[data-theme='warm-autumn'] {
+  --color-primary: #d4622a;
+  --color-primary-hover: #bc5222;
+  --color-secondary: #e8943a;
+  --color-accent: #8b5e3c;
+  --color-bg: #fdf4ec;
+  --color-bg-card: #fff9f3;
+  --color-bg-sidebar: #f5e8d8;
+  --color-text: #3a2010;
+  --color-text-muted: #9a7060;
+  --color-border: #ecd5bc;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --color-progress-track: #f0dcc8;
+  --color-timer-ring: #d4622a;
+  --color-timer-break: #8b5e3c;
+}
+
+/* ===== 暗夜紫 ===== */
+[data-theme='dark-purple'] {
+  --color-primary: #c084fc;
+  --color-primary-hover: #b76ffc;
+  --color-secondary: #e879f9;
+  --color-accent: #f0abfc;
+  --color-bg: #0e0a14;
+  --color-bg-card: #1a1225;
+  --color-bg-sidebar: #150e1f;
+  --color-text: #f0e6ff;
+  --color-text-muted: #7c6898;
+  --color-border: #2d1f45;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --color-progress-track: #1f1530;
+  --color-timer-ring: #c084fc;
+  --color-timer-break: #f0abfc;
+}
+
+/* ===== 全局基础样式 ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+  user-select: none;
+  -webkit-app-region: no-drag;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+.app-drag-region {
+  -webkit-app-region: drag;
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 rounded-xl font-medium transition-all duration-200 active:scale-95;
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 rounded-xl font-medium transition-all duration-200 active:scale-95;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+  }
+  .btn-ghost:hover {
+    color: var(--color-text);
+    background-color: var(--color-bg-sidebar);
+  }
+
+  .card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-color) 0px 4px 24px -4px;
+  }
+
+  .input-base {
+    @apply w-full px-3 py-2 rounded-xl text-sm outline-none transition-all duration-200;
+    background-color: var(--color-bg-sidebar);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+  .input-base:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  }
+  .input-base::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer;
+    color: var(--color-text-muted);
+  }
+  .nav-item:hover {
+    background-color: var(--color-bg-card);
+    color: var(--color-text);
+  }
+  .nav-item.active {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes bounce-in {
+  0%   { transform: scale(0.85); opacity: 0; }
+  70%  { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-bounce-in {
+  animation: bounce-in 0.25s ease-out both;
+}
