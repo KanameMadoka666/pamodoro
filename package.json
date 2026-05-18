@@ -8,6 +8,13 @@
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --cache .",
+    "version:patch": "npm version patch --no-git-tag-version",
+    "version:minor": "npm version minor --no-git-tag-version",
+    "version:major": "npm version major --no-git-tag-version",
+    "release:win": "npm run release:win:patch",
+    "release:win:patch": "npm run typecheck && npm run version:patch && electron-vite build && electron-builder --win",
+    "release:win:minor": "npm run typecheck && npm run version:minor && electron-vite build && electron-builder --win",
+    "release:win:major": "npm run typecheck && npm run version:major && electron-vite build && electron-builder --win",
     "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
     "typecheck": "npm run typecheck:node && npm run typecheck:web",

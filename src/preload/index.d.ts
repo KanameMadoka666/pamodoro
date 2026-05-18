@@ -121,6 +121,7 @@ export interface IApi {
   unflashWindow(): Promise<void>
   getAutoLaunch(): Promise<boolean>
   setAutoLaunch(enable: boolean): Promise<void>
+  getAppVersion(): Promise<string>
 
   // Events
   onTimerComplete(cb: (type: string) => void): () => void

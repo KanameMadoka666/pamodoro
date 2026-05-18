@@ -1,3 +1,4 @@
+# Keep this stable across releases so newer installers upgrade the existing app.
 appId: com.pamodoro.app
 productName: Pamodoro
 directories:

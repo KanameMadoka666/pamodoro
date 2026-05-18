@@ -53,6 +53,7 @@ const api = {
   unflashWindow: () => ipcRenderer.invoke('window:unflash'),
   getAutoLaunch: () => ipcRenderer.invoke('system:getAutoLaunch'),
   setAutoLaunch: (enable: boolean) => ipcRenderer.invoke('system:setAutoLaunch', enable),
+  getAppVersion: () => ipcRenderer.invoke('app:getVersion'),
 
   // ---------- Events from main ----------
   onTimerComplete: (cb: (type: string) => void) => {

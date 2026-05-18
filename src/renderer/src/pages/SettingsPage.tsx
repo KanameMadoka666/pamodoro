@@ -67,9 +67,11 @@ const SettingsPage = (): React.JSX.Element => {
   const bgFileRef = useRef<HTMLInputElement>(null)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const [autoLaunch, setAutoLaunchState] = useState(false)
+  const [appVersion, setAppVersion] = useState('')
 
   useEffect(() => {
     window.api.getAutoLaunch().then(v => setAutoLaunchState(v)).catch(() => {})
+    window.api.getAppVersion().then(v => setAppVersion(v)).catch(() => {})
   }, [])
 
   const handleAutoLaunch = async (enable: boolean): Promise<void> => {
@@ -359,6 +361,15 @@ const SettingsPage = (): React.JSX.Element => {
         >
           <span className="shrink-0">🔔</span>
           <span>关闭窗口时自动最小化到系统托盘，双击托盘图标可重新显示窗口。</span>
+        </div>
+      </Section>
+
+      <Section title="版本信息">
+        <div className="flex items-center justify-between text-sm">
+          <span style={{ color: 'var(--color-text)' }}>当前版本</span>
+          <span className="tabular-nums" style={{ color: 'var(--color-text-muted)' }}>
+            v{appVersion || '--'}
+          </span>
         </div>
       </Section>
     </div>

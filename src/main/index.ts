@@ -86,6 +86,7 @@ app.whenReady().then(() => {
     else mainWindow?.maximize()
   })
   ipcMain.on('app:close', () => mainWindow?.close())
+  ipcMain.handle('app:getVersion', () => app.getVersion())
 
   // Bring window to front (called when timer completes)
   ipcMain.handle('window:flash', () => {
